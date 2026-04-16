@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitTech | Кадровое агентство</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Иконки Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                            950: '#172554',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Небольшие кастомные анимации для "гибкости" и "графиков" */
+        .chart-bar {
+            animation: growUp 2s ease-out forwards;
+            transform-origin: bottom;
+        }
+        @keyframes growUp {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        .blob-shape {
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Навигация -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div class="bg-brand-600 text-white p-2 rounded-lg">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-brand-950">Recruit<span class="text-brand-600">Tech</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#stats" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Цифры</a>
+                    <a href="#spheres" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Сферы</a>
+                    <a href="#benefits" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Почему мы</a>
+                </div>
+                <div>
+                    <a href="https://t.me/its_a_bonk" target="_blank" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-sm hover:shadow-md transition-all">
+                        Найти кандидатов
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран (Hero) -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Декоративные элементы фона -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Текст -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 font-semibold text-sm mb-6 border border-brand-100">
+                        <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+                        Гибкий подход к найму
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-950 leading-tight mb-6">
+                        Точные данные.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">Сильные кадры.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        Мы оцифровали рекрутмент. Готовы брать массовые и точечные наймы. Нужна команда из 10 специалистов за месяц? Для нас это не проблема.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://t.me/its_a_bonk" target="_blank" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition-all transform hover:-translate-y-1">
+                            Найти кандидатов
+                            <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Графика (Графики и цифры) -->
+                <div class="relative hidden lg:block">
+                    <div class="blob-shape bg-gradient-to-br from-brand-100 to-blue-50 absolute inset-0 transform scale-105 z-0"></div>
+                    <div class="relative z-10 bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+                        <div class="flex justify-between items-end h-48 mb-6 gap-4">
+                            <div class="w-1/4 bg-brand-100 rounded-t-lg relative chart-bar" style="height: 40%;">
+                                <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold text-gray-500">Неделя 1</div>
+                            </div>
+                            <div class="w-1/4 bg-brand-200 rounded-t-lg relative chart-bar delay-1" style="height: 60%;">
+                                <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold text-gray-500">Неделя 2</div>
+                            </div>
+                            <div class="w-1/4 bg-brand-400 rounded-t-lg relative chart-bar delay-2" style="height: 85%;">
+                                <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold text-gray-500">Неделя 3</div>
+                            </div>
+                            <div class="w-1/4 bg-brand-600 rounded-t-lg relative chart-bar delay-3 shadow-lg shadow-brand-500/40" style="height: 100%;">
+                                <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-sm font-bold text-brand-600">Закрытие</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+                            <div class="bg-green-100 p-2 rounded-full">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium">Кандидаты найдены</p>
+                                <p class="text-xl font-bold text-gray-900">Успех 100%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок с цифрами -->
+    <section id="stats" class="py-16 bg-brand-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-white/10">
+                <div class="text-center px-4">
+                    <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">20+</p>
+                    <p class="text-brand-100 text-sm md:text-base font-medium">Опытных рекрутеров</p>
+                </div>
+                <div class="text-center px-4">
+                    <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">2-3 <span class="text-2xl font-bold">нед.</span></p>
+                    <p class="text-brand-100 text-sm md:text-base font-medium">Среднее время закрытия</p>
+                </div>
+                <div class="text-center px-4">
+                    <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">100%</p>
+                    <p class="text-brand-100 text-sm md:text-base font-medium">Прозрачность процессов</p>
+                </div>
+                <div class="text-center px-4">
+                    <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">2 <span class="text-2xl font-bold">часа</span></p>
+                    <p class="text-brand-100 text-sm md:text-base font-medium">Первые кандидаты в воронке</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сферы подбора -->
+    <section id="spheres" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-4">Экспертиза в отраслях</h2>
+                <p class="text-gray-600 text-lg">Мы понимаем специфику бизнеса. Наши рекрутеры — это отраслевые эксперты, которые говорят на одном языке с кандидатами.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- IT -->
+                <div class="group p-8 rounded-2xl bg-slate-50 border border-gray-100 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all cursor-pointer">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="monitor-smartphone" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">IT-сектор</h3>
+                    <p class="text-gray-500 text-sm">Разработчики, аналитики, DevOps, Product-менеджеры.</p>
+                </div>
+                
+                <!-- Finance -->
+                <div class="group p-8 rounded-2xl bg-slate-50 border border-gray-100 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all cursor-pointer">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="pie-chart" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Финансы</h3>
+                    <p class="text-gray-500 text-sm">Аудиторы, финансовые директора, аналитики и бухгалтеры.</p>
+                </div>
+
+                <!-- Production -->
+                <div class="group p-8 rounded-2xl bg-slate-50 border border-gray-100 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all cursor-pointer">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="factory" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Производство</h3>
+                    <p class="text-gray-500 text-sm">Инженеры, начальники производств, технологи, линейный персонал.</p>
+                </div>
+
+                <!-- Marketing -->
+                <div class="group p-8 rounded-2xl bg-slate-50 border border-gray-100 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all cursor-pointer">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="megaphone" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Маркетинг</h3>
+                    <p class="text-gray-500 text-sm">Директора по маркетингу, Performance, PR и бренд-менеджеры.</p>
+                </div>
+
+                <!-- Sales -->
+                <div class="group p-8 rounded-2xl bg-slate-50 border border-gray-100 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all cursor-pointer">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="trending-up" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Продажи</h3>
+                    <p class="text-gray-500 text-sm">B2B/B2C сейлзы, РОПы, коммерческие директора, Key Account.</p>
+                </div>
+
+                <!-- Other -->
+                <div class="group p-8 rounded-2xl bg-slate-50 border border-gray-100 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 transition-all cursor-pointer flex flex-col justify-center items-center text-center">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-600 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="more-horizontal" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Другое</h3>
+                    <p class="text-brand-600 font-medium text-sm mt-2 group-hover:underline">Узнать подробнее</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Массовый и точечный найм -->
+    <section class="py-20 bg-brand-50 border-y border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Команда в офисе" class="rounded-3xl shadow-2xl object-cover h-[400px] w-full">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-brand-100 p-3 rounded-full text-brand-600">
+                                    <i data-lucide="users" class="w-8 h-8"></i>
+                                </div>
+                                <div>
+                                    <p class="text-3xl font-extrabold text-brand-950">10+</p>
+                                    <p class="text-sm font-medium text-gray-500">наймов за месяц</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-6">Готовы к любым объемам</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Мы одинаково эффективно закрываем как уникальные точечные позиции C-level, так и организуем проекты массового найма.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-6 h-6 text-brand-600 mt-0.5 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-700 font-medium">Нужно 10 специалистов за месяц? Для нас это не проблема, а отлаженный процесс.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-6 h-6 text-brand-600 mt-0.5 mr-3 flex-shrink-0"></i>
+                            <span class="text-gray-700 font-medium">Масштабируем команду рекрутеров под ваш проект в день обращения.</span>
+                        </li>
+                    </ul>
+                    <a href="https://t.me/its_a_bonk" target="_blank" class="inline-flex items-center text-brand-600 font-bold hover:text-brand-800 transition-colors text-lg group">
+                        Поставить задачу
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Почему выгодно (Benefits) -->
+    <section id="benefits" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-950 mb-4">Почему с нами выгодно?</h2>
+                <p class="text-gray-600 text-lg">Коротко по сути о наших главных принципах работы, которые экономят ваше время и деньги.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-brand-50 rounded-bl-full -mr-4 -mt-4 opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="bg-brand-50 w-12 h-12 rounded-xl flex items-center justify-center text-brand-600 mb-4">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Индивидуальный подход</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Не работаем по шаблону. Погружаемся в ДНК вашей компании, чтобы найти не просто скиллы, а "своего" человека.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-brand-50 rounded-bl-full -mr-4 -mt-4 opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="bg-brand-50 w-12 h-12 rounded-xl flex items-center justify-center text-brand-600 mb-4">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Умеем продавать вакансии</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Сильные кандидаты не ищут работу. Мы знаем, как заинтересовать пассивных звезд рынка вашим оффером.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-brand-50 rounded-bl-full -mr-4 -mt-4 opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="bg-brand-50 w-12 h-12 rounded-xl flex items-center justify-center text-brand-600 mb-4">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Честность</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            100% прозрачность процессов. Даем реальную картину рынка, не завышаем ожидания и говорим правду о сроках.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-brand-50 rounded-bl-full -mr-4 -mt-4 opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="bg-brand-50 w-12 h-12 rounded-xl flex items-center justify-center text-brand-600 mb-4">
+                            <i data-lucide="message-square" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Говорим на одном языке</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Понимаем разницу между Java и JavaScript, знаем метрики отдела продаж. Вы общаетесь с профессионалами.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Секция -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-900"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Готовы усилить вашу команду?</h2>
+            <p class="text-xl text-brand-100 mb-10 max-w-2xl mx-auto">
+                Первые целевые резюме могут быть у вас на столе уже через 2 часа. Напишите нам прямо сейчас.
+            </p>
+            <a href="https://t.me/its_a_bonk" target="_blank" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-xl text-brand-900 bg-white hover:bg-gray-50 shadow-xl transition-all transform hover:scale-105">
+                <i data-lucide="send" class="w-5 h-5 mr-3 text-brand-600"></i>
+                Найти кандидатов
+            </a>
+        </div>
+    </section>
+
+    <!-- Подвал (Footer) -->
+    <footer class="bg-white py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="bg-brand-600 text-white p-1.5 rounded-lg">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                </div>
+                <span class="font-bold text-xl text-brand-950">Recruit<span class="text-brand-600">Tech</span></span>
+            </div>
+            <div class="text-gray-500 text-sm text-center md:text-left">
+                &copy; <script>document.write(new Date().getFullYear())</script> Кадровое агентство RecruitTech. Все права защищены.
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://t.me/its_a_bonk" target="_blank" class="text-gray-400 hover:text-brand-600 transition-colors">
+                    <span class="sr-only">Telegram</span>
+                    <i data-lucide="send" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Инициализация иконок -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
